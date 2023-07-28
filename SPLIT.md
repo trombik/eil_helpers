@@ -54,7 +54,8 @@ dependencies:
 
 Create an account of ESP Registry. The repository is not open to public yet.
 Ask espressif employees at
-[Issue #4](https://github.com/espressif/idf-component-manager/issues/4).
+[Issue #4](https://github.com/espressif/idf-component-manager/issues/4). You
+need to tell them that you need a name space of your own, and `esp-idf-lib`.
 
 ### Creating an API token
 
