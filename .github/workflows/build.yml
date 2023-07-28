@@ -86,6 +86,7 @@ jobs:
             fi
 
             # See if the component supports the target
+            export PATH=${PATH}:/snap/bin
             is_supported=0
             supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json ".[][0] | .targets | .[] | .name"`
             for T in ${supported_targets}; do
