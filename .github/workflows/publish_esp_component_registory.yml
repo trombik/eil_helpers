@@ -1,0 +1,22 @@
+name: Push release to Espressif Component Registry
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  upload_components:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+
+      - name: Upload component to the registry
+        uses: espressif/upload-components-ci-action@v1
+        with:
+          name: "eil_helpers"
+          version: ${{ github.ref_name }}
+          namespace: "trombik"
+          api_token: ${{ secrets.ESP_IDF_COMPONENT_API_TOKEN }}
