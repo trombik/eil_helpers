@@ -2,7 +2,7 @@
 
 version: "0.0.1"
 description: Common support library for esp-idf-lib
-url: https://github.com/trombik/el_helpers
+url: https://github.com/trombik/eil_helpers
 issues: https://github.com/trombik/eil_helpers/issues
 repository: https://github.com/trombik/eil_helpers
 dependencies:
