@@ -6,6 +6,10 @@
 * git
 * [git-filter-repo](https://github.com/newren/git-filter-repo)
 
+## Splitting
+
+### Creating new component repository
+
 Create a repository from the original, select the component, and rewrite the
 commit history.
 
@@ -21,10 +25,35 @@ Copy the following files from *this* repository to new component repository.
 They are supposed to work without modifications.
 
 * `.gitignore`
+
+Copy the following files from *this* repository to new component repository.
+
 * `.github`
+
+Modify `publish_esp_component_registory.yml`. `name` in job `Upload component
+to the registry` must be modified. Add more jobs if the repository has more
+than one component.
 
 Create `idf_component.yml` under `components/${component_name}`. Remember to
 modify the content.
+
+### Creating an account at ESP Registry
+
+Create an account of ESP Registry. The repository is not open to public yet.
+Ask espressif employees at
+[Issue #4](https://github.com/espressif/idf-component-manager/issues/4).
+
+### Creating an API token
+
+Create a token at [ESP Registry](https://components.espressif.com/). Login to
+the registry, and click your profile icon, select [Tokens]. The [Description]
+should be something like `github-action-publish`. Select `write:components` in
+[Scope of the token]. Set [Expiration]. Click [Create]. Copy the token value,
+which you will need later.
+
+Add GitHub Actions Secret. Visit [Settings] -> [Secrets and variables] under
+[Security]. Select [Actions]. Add `IDF_COMPONENT_API_TOKEN` by clicking [New
+repository secret]. Use the API token from ESP Registry.
 
 ```yaml
 ---
