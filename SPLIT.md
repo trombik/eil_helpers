@@ -38,6 +38,18 @@ than one component.
 Create `idf_component.yml` under `components/${component_name}`. Remember to
 modify the content.
 
+```yaml
+---
+
+version: "0.0.1"
+description: Common support library for esp-idf-lib
+url: https://esp-idf-lib.readthedocs.io/en/latest/
+issues: https://github.com/trombik/eil_helpers/issues
+repository: https://github.com/trombik/eil_helpers
+dependencies:
+  idf: ">=4.3"
+```
+
 ### Creating an account at ESP Registry
 
 Create an account of ESP Registry. The repository is not open to public yet.
@@ -55,18 +67,6 @@ which you will need later.
 Add GitHub Actions Secret. Visit [Settings] -> [Secrets and variables] under
 [Security]. Select [Actions]. Add `IDF_COMPONENT_API_TOKEN` by clicking [New
 repository secret]. Use the API token from ESP Registry.
-
-```yaml
----
-
-version: "0.0.1"
-description: Common support library for esp-idf-lib
-url: https://esp-idf-lib.readthedocs.io/en/latest/
-issues: https://github.com/trombik/eil_helpers/issues
-repository: https://github.com/trombik/eil_helpers
-dependencies:
-  idf: ">=4.3"
-```
 
 Add `README.md` to `components/${component_name}`.
 
