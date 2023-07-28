@@ -109,7 +109,7 @@ jobs:
                 echo "Component, ${C}, does not support ${{ matrix.target }}. Skipping"
                 exit 0
               else
-                echo "Component, ${C}, supports ${{ matrix.target }}"."
+                echo "Component, ${C}, supports ${{ matrix.target }}"
               fi
 
               EXAMPLES=`echo ${C}/*`
