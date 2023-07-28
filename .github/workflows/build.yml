@@ -35,7 +35,8 @@ jobs:
       - name: Install packages
         run: |
           sudo apt-get update
-          sudo apt-get install jq yq
+          sudo apt-get install jq
+          sudo snap install yq
 
       - name: Checkout
         uses: actions/checkout@v3
