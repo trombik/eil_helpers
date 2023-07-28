@@ -3,7 +3,7 @@
 version: "0.0.1"
 description: Common support library for esp-idf-lib
 url: https://esp-idf-lib.readthedocs.io/en/latest/
-issues: https://github.com/UncleRus/esp-idf-lib/issues
-repository: https://github.com/UncleRus/esp-idf-lib
+issues: https://github.com/trombik/eil_helpers/issues
+repository: https://github.com/trombik/eil_helpers
 dependencies:
   idf: ">=4.3"
