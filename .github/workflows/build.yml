@@ -34,9 +34,8 @@ jobs:
     steps:
       - name: Install packages
         run: |
-          sudo apt-get update
-          sudo apt-get install jq
           sudo snap install yq
+          which yq
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -88,7 +87,7 @@ jobs:
 
             # See if the component supports the target
             is_supported=0
-            supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json  | jq ".[][0] | .targets | .[] | .name"`
+            supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json ".[][0] | .targets | .[] | .name"`
             for T in ${supported_targets}; do
               if [ "${{ matrix.target }}" = "${T}" ]; then
                 is_supported=1
