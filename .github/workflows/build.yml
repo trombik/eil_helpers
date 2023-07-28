@@ -87,7 +87,7 @@ jobs:
               if [ "${{ matrix.target }}" = "${T}" ]; then
                 is_supported=1
               fi
-              if [ ${{ matrix,target }}" = "all" ]; then
+              if [ ${{ matrix.target }}" = "all" ]; then
                 is_supported=1
               fi
             done
