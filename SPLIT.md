@@ -14,6 +14,7 @@ Create a repository from the original, select the component, and rewrite the
 commit history.
 
 ```sh
+# do not skip this! you MUST clone the repository.
 git clone git@github.com:UncleRus/esp-idf-lib eil_${component_name}
 cd eil_${component_name}
 # select the component path and examples for the component, replace "#\d+"
