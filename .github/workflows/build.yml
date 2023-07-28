@@ -36,6 +36,7 @@ jobs:
         run: |
           sudo snap install yq
           which yq
+          which sudo
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -85,6 +86,7 @@ jobs:
               exit 0
             fi
 
+            echo `pwd`
             components=`find components -maxdepth 1 -type d`
             echo "Available components: ${components}"
 
