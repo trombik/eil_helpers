@@ -85,7 +85,7 @@ jobs:
               exit 0
             fi
 
-            components=`find components -depth 1 -type d`
+            components=`find components -maxdepth 1 -type d`
             echo "Available components: ${components}"
 
             # See if the component supports the target
