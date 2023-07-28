@@ -18,7 +18,7 @@
 #include <freertos/task.h>
 
 #include <esp_log.h>
-#include <esp_idf_lib_helpers.h>
+#include <eil_helpers.h>
 
 #include "my_local_header.h"
 
