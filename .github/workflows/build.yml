@@ -87,18 +87,19 @@ jobs:
             fi
 
             echo `pwd`
-            components=`cd ../components && find components -maxdepth 1 -type d`
+            cd ..
+            components=`find components -maxdepth 1 -type d`
             echo "Available components: ${components}"
 
             # See if the component supports the target
             export PATH=${PATH}:/snap/bin
             is_supported=0
             for C in ${components}; do
-              if [ -f "../components/${C}/.eil.yml" ]; then
+              if [ -f "components/${C}/.eil.yml" ]; then
                 echo "Component, ${C}, does not have .eil.yml"
                 exit 1
               fi
-              supported_targets=`cat ../components/${C}/.eil.yml | yq -o json ".[][0] | .targets | .[] | .name"`
+              supported_targets=`cat components/${C}/.eil.yml | yq -o json ".[][0] | .targets | .[] | .name"`
               for T in ${supported_targets}; do
                 if [ "${{ matrix.target }}" = "${T}" ]; then
                   is_supported=1
@@ -114,7 +115,7 @@ jobs:
                 echo "Component, ${C}, supports ${{ matrix.target }}"
               fi
 
-              EXAMPLES=`find ${C} -maxdepth 1 -type d`
+              EXAMPLES=`find examples/${C} -maxdepth 1 -type d`
               for D in ${EXAMPLES}; do
                 echo "Building example ${D} for target ${C}"
                 cd ${D} && idf.py build
