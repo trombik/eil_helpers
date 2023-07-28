@@ -80,6 +80,20 @@ jobs:
               echo "Skipping build because ${{ matrix.esp_idf_version }} does not support ${{ matrix.target }}"
               exit 0
             fi
+
+            # See if the component supports the target
+            is_supported=0
+            supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json  | jq '.[][0] | .targets | .[] | .name'`
+            for T in ${supported_targets}; do
+              if [ "${{ matrix.target }}" = "${T}" ]; then
+                is_supported=1
+              fi
+            done
+            if [ is_supported -eq 0 ]; then
+              echo "This component does not support ${{ matrix.target }}. Skipping"
+              exit 0
+            fi
+
             EXAMPLES=`echo */*`
             for D in ${EXAMPLES}; do
               cd ${D} && idf.py build
