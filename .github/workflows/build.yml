@@ -82,7 +82,7 @@ jobs:
 
             # See if the component supports the target
             is_supported=0
-            supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json  | jq '.[][0] | .targets | .[] | .name'`
+            supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json  | jq ".[][0] | .targets | .[] | .name"`
             for T in ${supported_targets}; do
               if [ "${{ matrix.target }}" = "${T}" ]; then
                 is_supported=1
