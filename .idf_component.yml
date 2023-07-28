@@ -1,0 +1,5 @@
+---
+
+version: "0.0.1"
+description: Common support library for esp-idf-lib
+url: https://github.com/trombik/eli_helpers
