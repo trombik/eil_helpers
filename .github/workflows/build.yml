@@ -86,7 +86,6 @@ jobs:
             fi
 
             # See if the component supports the target
-            sudo apt-get install jq yq
             is_supported=0
             supported_targets=`cat components/eil_helpers/.eil.yml | yq -o json  | jq ".[][0] | .targets | .[] | .name"`
             for T in ${supported_targets}; do
