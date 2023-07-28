@@ -88,8 +88,9 @@ jobs:
 
             echo `pwd`
             echo ${PATH}
+            ls /snap/bin
             cd ..
-            components=`cd components && find . -maxdepth 1 -type d`
+            components=`(cd components && find . -maxdepth 1 -type d)`
             echo "Available components: ${components}"
 
             # See if the component supports the target
@@ -116,7 +117,7 @@ jobs:
                 echo "Component, ${C}, supports ${{ matrix.target }}"
               fi
 
-              EXAMPLES=`cd examples && find ${C} -maxdepth 1 -type d`
+              EXAMPLES=`(cd examples && find ${C} -maxdepth 1 -type d)`
               for D in ${EXAMPLES}; do
                 echo "Building example ${D} for target ${C}"
                 cd ${D} && idf.py build
