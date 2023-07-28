@@ -19,5 +19,5 @@ jobs:
           name: "eil_helpers"
           version: ${{ github.ref_name }}
           namespace: "trombik"
-          api_token: ${{ secrets.ESP_IDF_COMPONENT_API_TOKEN }}
+          api_token: ${{ secrets.IDF_COMPONENT_API_TOKEN }}
           directories: components/eil_helpers
