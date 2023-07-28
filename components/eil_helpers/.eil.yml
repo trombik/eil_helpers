@@ -12,10 +12,7 @@ components:
       - name: freertos
     thread_safe: N/A
     targets:
-      - name: esp32
-      - name: esp8266
-      - name: esp32s2
-      - name: esp32c3
+      - name: all
     licenses:
       - name: ISC
     copyrights:
