@@ -85,7 +85,7 @@ jobs:
               exit 0
             fi
 
-            components=`echo echo components/* | sed -e "s|/ | |g" -e "s|/$||"`
+            components=`find components -depth 1 -type d`
             echo "Available components: ${components}"
 
             # See if the component supports the target
@@ -112,7 +112,7 @@ jobs:
                 echo "Component, ${C}, supports ${{ matrix.target }}"
               fi
 
-              EXAMPLES=`echo ${C}/*`
+              EXAMPLES=`find examples/${C} -depth 1 -type d`
               for D in ${EXAMPLES}; do
                 echo "Building example ${D} for target ${C}"
                 cd ${D} && idf.py build
