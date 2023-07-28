@@ -85,7 +85,7 @@ jobs:
               exit 0
             fi
 
-            components=`echo components/* | sed -e "s|/ ||g"`
+            components=`echo echo components/* | sed -e "s|/ | |g" -e "s|/$||"`
             echo "Available components: ${components}"
 
             # See if the component supports the target
